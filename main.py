@@ -6,7 +6,7 @@ from Function.OpenApp import openapp, closeapp
 
 # Main function section...
 def main():
-    query = listen()
+    query = listen().lower()
 
     if "open" in query:
         openapp(query)
