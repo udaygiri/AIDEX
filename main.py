@@ -13,9 +13,14 @@ def main():
     
     elif "close" in query:
         closeapp(query)
+    
+    elif "exit" in query:
+        exit()
 
 # Main function call.
 if __name__ == "__main__":
     speak("Hello, i'm AIDEX: Artificial Intelligence Desktop Executor.")
+    speak("How can i help you Boss!!!")
+
     while True:
         main()
