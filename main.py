@@ -16,6 +16,7 @@ def main():
     
     elif "exit" in query:
         exit()
+        speak("Call me any time when you need help, Have nice Boss!!!")
 
 # Main function call.
 if __name__ == "__main__":
