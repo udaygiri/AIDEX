@@ -15,12 +15,12 @@ def main():
         closeapp(query)
     
     elif "exit" in query:
+        speak("Call me any time when you need help, Have nice day Boss!!!")
         exit()
-        speak("Call me any time when you need help, Have nice Boss!!!")
 
 # Main function call.
 if __name__ == "__main__":
-    speak("Hello, i'm AIDEX: Artificial Intelligence Desktop Executor.")
+    speak("Hello Boss, i'm AIDEX: Artificial Intelligence Desktop Executor.")
     speak("How can i help you Boss!!!")
 
     while True:

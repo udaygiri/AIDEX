@@ -14,7 +14,7 @@ def speak(text):
     engine = pyttsx3.init()
 
     # Set the speed of the speech
-    engine.setProperty('rate', 160)
+    engine.setProperty('rate', 175)
 
     # Set the voice of the speech
     voices = engine.getProperty('voices')
