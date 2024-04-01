@@ -24,6 +24,7 @@ def speak(text):
     engine.say(text)
     if (text!=""):
         print(f"AIDEx said: {text}")
+        print()
 
     # Wait for the speech to finish
     engine.runAndWait()

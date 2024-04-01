@@ -12,12 +12,14 @@ def listen():
 
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
+        print()
         print("Listening...")
         audio = recognizer.listen(source)
 
     try:
         print("Recognizing....")
         text = recognizer.recognize_google(audio,language="en-in")  # Use Google Speech Recognition
+        print()
         print(f"You said: {text}")
         return text.lower()
     except sr.UnknownValueError:

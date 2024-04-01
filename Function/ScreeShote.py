@@ -1,7 +1,8 @@
+import os
 import pyscreenshot
 from datetime import datetime
-import os
 from Speak.smd1 import speak
+from Listen.listen import listen
 
 def screenshot():
     """
@@ -21,9 +22,14 @@ def screenshot():
         # Save the screenshot to a file
         screenshot.save(f"DataBase\\ScreenShot\\ss_{timestamp}.png")
         print("Screenshot saved successfully:", f"DataBase\\ScreenShot\\ss_{timestamp}.png")
-        speak("Screenshot saved successfully. open screenshot.")
-        os.open(f"DataBase\\ScreenShot\\ss_{timestamp}.png")
-        return f"DataBase\\ScreenShot\\ss_{timestamp}.png"
+        speak("Screenshot saved successfully.")
+        speak("Boss can i open screenshot !")
+
+        # Open screenshot if boss agree
+        comd = listen().lower()
+        if "yes" in comd:
+            os.startfile(f"DataBase\\ScreenShot\\ss_{timestamp}.png")
+    
     except Exception as e:
         print("Error occurred while taking or saving screenshot:", e)
         return None
