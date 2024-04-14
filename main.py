@@ -12,43 +12,36 @@ import pyautogui as ag
 
 # Main function section...
 def main(query):
+    """
+    Main function to execute all the commands.
+
+    Args:
+        query (str): The voice command to execute.
+    """
+    query = query.lower()
 
     if "open" in query:
         openapp(query)
-    
     elif "close" in query:
         closeapp(query)
-
-    elif "ss" in query or "screenshot" in query:
+    elif "screenshot" in query:
         screenshot()
-
-    elif "play music" in query or "play song" in query :
+    elif "play music" in query or "play song" in query:
         playMusic()
-
-    elif "next music" in query or "next song" in query:
+    elif "next song" in query or "next music" in query:
         nextMusic()
-
-    elif "exit" in query or "by" in query or "bye" in query or "by" in query or "tata" in query or "see you" in query:
+    elif any(word in query for word in ("exit","bye","tata","see you")):
         speak("Call me any time when you need help, Have nice day Boss!!!")
         exit()
-
     elif "shutdown" in query or "system off" in query:
         shutDown()
-
     elif "volume up" in query:
-        speak("Volume increased")
         ag.press("volumeup")
-
     elif "volume down" in query:
-        speak("Volume decreased")
         ag.press("volumedown")
-
     elif "mute" in query:
-        speak("Volume muted")
         ag.press("volumemute")
-
     elif "unmute" in query:
-        speak("Volume unmuted")
         ag.press("volumeunmute")
 
 

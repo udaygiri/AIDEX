@@ -1,15 +1,23 @@
 import pygetwindow as gw
 from Function.Youtube.youtubeMain import ytmain
-def activeApps(query):
+def active_app(query):
+    """
+    Finds the active window and passes the voice command to the 
+    appropriate function based on the active application
+
+    Args:
+        query (str): The voice command to execute
+    """
     # Get the active window
     active_window = gw.getActiveWindow()
 
-    if active_window:
-        activeApp  = active_window.title.lower()
+    if not active_window:
+        return
 
-        if "youtube" in activeApp:
-            ytmain(query)
-    else:
-        return "No active application found."
+    app_name = active_window.title.lower()
+
+    # YouTube
+    if "youtube" in app_name:
+        ytmain(query)
 
 
