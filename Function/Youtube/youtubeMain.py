@@ -1,7 +1,7 @@
-from Speak.smd1 import speak  # Importing the speak function from Speak.smd1 module
-import pywhatkit as pw  # Importing pywhatkit module as pw
-import pyautogui as ag  # Importing pyautogui module as ag
-import time  # Importing time module
+import pyautogui
+import pytube
+import speech_recognition as sr
+from Speak.smd1 import speak
 
 def ytmain(query):
     """
@@ -10,56 +10,72 @@ def ytmain(query):
     Args:
         query (str): The voice command to execute.
     """
-
-    # Search a video on YouTube
-    if "search" in query:
-        query = query.replace("search","")
-        pw.search(query, mode="list")
-        speak(f"Searching for {query}")
-
     # Go to the next video
-    elif "next" in query:
-        pw.playnext(mode="list")
+    if "next" in query:
+        pyautogui.hotkey('shift', 'n')
 
     # Go to the previous video
     elif "previous" in query:
-        pw.playprevious(mode="list")
+        pyautogui.hotkey('shift', 'p')
 
     # Mute the current video
     elif "mute" in query:
-        pw.mute(mode="list")
+        pyautogui.press('m')
 
     # Unmute the current video
     elif "unmute" in query:
-        pw.unmute(mode="list")
+        pyautogui.press('m')
 
     # Toggle fullscreen mode
     elif "full screen" in query or "fullscreen" in query:
-        pw.fullscreen(mode="list")
+        pyautogui.press('f')
 
     # Exit fullscreen mode
     elif "normal screen" in query or "normalscreen" in query:
-        pw.normalscreen(mode="list")
+        pyautogui.press('f')
 
     # Stop the current video playback
     elif "stop" in query:
-        pw.stop(mode="list")
+        pyautogui.press('k')
 
     # Pause or resume the video playback
     elif "pause" in query or "pause video" in query or "play" in query or "play video" in query:
-        pw.pause(mode="list")
+        pyautogui.press('k')
 
     # Set the volume of the video
     elif "volume" in query:
-        query = query.replace("volume","")
-        query = int(query)
-        pw.volume(query, mode="list")
+        query = query.replace("volume", "").strip()
+        set_volume(int(query))
 
     # Scroll down the page
     elif "scroll down" in query:
-        pw.scroll_down(mode="list")
+        pyautogui.scroll(-500)
 
     # Scroll up the page
     elif "scroll up" in query:
-        pw.scroll_up(mode="list")
+        pyautogui.scroll(500)
+
+def set_volume(level):
+    for _ in range(50):  # Reset volume to 0
+        pyautogui.press('volumedown')
+    for _ in range(level):  # Set to desired level
+        pyautogui.press('volumeup')
+
+# Example usage with voice recognition
+def listen_and_execute():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        audio = recognizer.listen(source)
+        try:
+            query = recognizer.recognize_google(audio)
+            print(f"Command: {query}")
+            ytmain(query.lower())
+        except sr.UnknownValueError:
+            print("Sorry, I did not understand that.")
+        except sr.RequestError:
+            print("Could not request results; check your network connection.")
+
+# Uncomment to use voice recognition
+# listen_and_execute()
 
