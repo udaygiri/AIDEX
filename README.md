@@ -2,6 +2,8 @@
 
 AIDEX is a cutting-edge Python-based project that empowers users to control their desktop tasks hands-free, utilizing advanced voice recognition technology. This innovative tool enhances productivity by enabling users to execute various actions without needing to touch their mouse or keyboard. With AIDEX, you can perform a wide range of functions, from basic operations like opening and closing applications, to more complex tasks such as managing files, browsing the web, or even initiating system shutdowns — all through simple voice commands.
 
+![image](https://github.com/user-attachments/assets/d2a4bc6e-6163-4bdd-acaa-e479fddbfaf2)
+
 ## Key Features of AIDEX:
 
 - **Voice-Controlled Application Management**: Easily open, close, or switch between applications with verbal commands, eliminating the need to navigate through windows manually.
