@@ -37,7 +37,7 @@ AIDEX is continuously evolving, with plans to integrate more advanced features, 
 1. **Clone this repository:**
 
    ```bash
-   git clone https://github.com/yourusername/AIDEX.git
+   git clone https://github.com/udaygiri/AIDEX.git
    cd AIDEX
    ```
 
